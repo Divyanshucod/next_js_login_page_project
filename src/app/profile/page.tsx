@@ -1,12 +1,13 @@
 "use client"
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 export default function Profile(){
+    const router = useRouter()
     const logOut = async ()=>{
         try {
             const response = await axios.get('/api/users/logout');
             console.log(response.data);
-
+            router.push('/login')
         } catch (error:any) {
             console.log(error.message);
             
